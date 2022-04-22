@@ -3,8 +3,14 @@ import { RepositoryItem } from "./RepositoryItem";
 import '../styles/repositories.scss'
 import { useState, useEffect } from "react";
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string;
+}
+
 export function RepositoryList(){
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     //Esse metodo fetch aqui está fazendo uma requisição Get com o endpoint do 
     //github, se não especificar o fetch faz um Get.
